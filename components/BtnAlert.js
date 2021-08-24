@@ -1,14 +1,10 @@
 import React from 'react'
 import {Alert, Text, StyleSheet, TouchableOpacity} from 'react-native'
 
-export default function Btnalert() {
-    
-    const handlePress = () =>{
-        Alert.alert("why did you hit me !")
-    }
+export default function Btnalert(props) {
 
     return (
-        <TouchableOpacity style={styles.btn} onPress={handlePress}>
+        <TouchableOpacity style={styles.btn} onPress={props.onPress}>
             <Text style={styles.btnText}>Click Me !</Text>
         </TouchableOpacity>
     )

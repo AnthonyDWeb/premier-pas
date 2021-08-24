@@ -1,17 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, ActivityIndicator, Alert } from 'react-native';
 import konexio from './assets/konexio-logo.png'
 import Btnalert from './components/BtnAlert';
 
 
 export default function App() {
-  // const [,] = useState()
+  const [showLoading,setShowLoading] = useState(false)
 
   useEffect(()=>{
 
   },[])
 
-
+  const handlePress = () =>{
+    setShowLoading(!showLoading);
+    Alert.alert("why did you hit me !")
+  }
 
     return (
 
@@ -25,15 +28,16 @@ export default function App() {
         // </View>
 
        
-            <ScrollView>
-              
-                  <Text style={styles.text1}>Open up App.js to start working on your app!</Text>
-                  <Text style={styles.text2}>Open up App.js to start working on your app!</Text>
-                  <Text style={styles.text3}>Open up App.js to start working on your app!</Text>
-                  <Image style={styles.img} source={konexio} />
-                  <Image style={styles.img} source={"https://www.konexio.eu/uploads/1/2/0/2/120245745/konexio-logo_1.png"} />
-                  <Btnalert />
-                  <ActivityIndicator size="large" color="red" />
+            <ScrollView style={styles.mainContainer}>
+                <View style={styles.textContainer}>
+                    <Text style={styles.text1}>Open up App.js to start working on your app!</Text>
+                    <Text style={styles.text2}>Open up App.js to start working on your app!</Text>
+                    <Text style={styles.text3}>Open up App.js to start working on your app!</Text>
+                    <Image style={styles.img} source={konexio} />
+                    <Image style={styles.img} source={"https://www.konexio.eu/uploads/1/2/0/2/120245745/konexio-logo_1.png"} />
+                    <Btnalert onPress={handlePress}/>
+                    {showLoading && <ActivityIndicator size="large" color="red" /> }
+                </View>
                   
 
             </ScrollView>
@@ -71,5 +75,5 @@ const styles = StyleSheet.create({
   img:{
     height: 50,
     width: 200,
-  }
+  },
 });
