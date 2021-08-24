@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import { FlatList, StyleSheet, Text, View, Alert, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import konexio from './assets/konexio-logo.png'
-
+import Btnalert from './components/BtnAlert';
 
 
 export default function App() {
@@ -32,6 +32,8 @@ export default function App() {
                   <Text style={styles.text3}>Open up App.js to start working on your app!</Text>
                   <Image style={styles.img} source={konexio} />
                   <Image style={styles.img} source={"https://www.konexio.eu/uploads/1/2/0/2/120245745/konexio-logo_1.png"} />
+                  <Btnalert />
+                  <ActivityIndicator size="large" color="red" />
                   
 
             </ScrollView>
